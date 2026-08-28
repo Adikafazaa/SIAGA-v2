@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+numpy>=1.26
+duckdb>=0.10
+pydantic>=2.6
+# Opsional (produksi Firebase/Firestore): aplikasi tetap jalan tanpa ini (fallback SQLite)
+firebase-admin>=6.5
+# Dev/test
+pytest>=8.0

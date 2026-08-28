@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Aksen HUD statis — satu-satunya hex di luar theme/colors.ts (DESIGN.md §10) */
+  --hud-line: #44548a;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Latar konsol SOC: grid titik halus (DESIGN.md §4) */
+.soc-grid {
+  background-color: #0b1220;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Angka wajib monospace-tabular (DESIGN.md §3) */
+.tabular {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Kurung HUD 4 pojok panel — 8 garis gradient pada 1 pseudo-element (DESIGN.md §5.1) */
+.hud-corners {
+  position: relative;
+}
+.hud-corners::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--hud-line), var(--hud-line)) top left / 10px 1px,
+    linear-gradient(var(--hud-line), var(--hud-line)) top left / 1px 10px,
+    linear-gradient(var(--hud-line), var(--hud-line)) top right / 10px 1px,
+    linear-gradient(var(--hud-line), var(--hud-line)) top right / 1px 10px,
+    linear-gradient(var(--hud-line), var(--hud-line)) bottom left / 10px 1px,
+    linear-gradient(var(--hud-line), var(--hud-line)) bottom left / 1px 10px,
+    linear-gradient(var(--hud-line), var(--hud-line)) bottom right / 10px 1px,
+    linear-gradient(var(--hud-line), var(--hud-line)) bottom right / 1px 10px;
+  background-repeat: no-repeat;
+}
+
+/* Kursor konsol — satu-satunya animasi loop (DESIGN.md §6) */
+.blink-cursor::after {
+  content: "_";
+  color: #7c3aed;
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

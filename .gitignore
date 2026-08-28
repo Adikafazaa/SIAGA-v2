@@ -1,0 +1,32 @@
+@"
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Database & Local Storage
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+backend/data/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Logs & System files
+*.log
+.DS_Store
+Thumbs.db
+"@ | Out-File -FilePath .gitignore -Encoding utf8
